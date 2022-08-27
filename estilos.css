@@ -1,0 +1,12 @@
+body
+{
+    background-color: bisque;
+}
+
+.contenedor{
+    max-width: 800px;
+    max-height: 1000px;
+    border-color: aqua;
+    margin: auto 100px;
+    border-width: 3px;
+}

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codificador</title>
+    <link href="estilos.css" rel="stylesheet">
+</head>
+<body>
+
+    <div class="contenedor">
+        <h1>Hola</h1>
+    </div>
+
+    <script>
+        function encriptar(texto)
+        {
+            let codificado="";
+            for(let i=0;i<texto.length;i++)
+            {
+                switch(texto[i])
+                {
+                    case 'a':
+                            codificado+="ai";
+                            break;
+                    case 'e':
+                            codificado+="enter";
+                            break;
+                    case 'i':
+                            codificado+="imes";
+                            break;
+                    case 'o':
+                            codificado+="ober";
+                            break;
+                    case 'u': 
+                            codificado+="ufat";
+                            break;
+                    default:
+                            codificado+=texto[i];
+                }
+            }
+            return codificado;
+        }
+    
+        function desencriptar(texto)
+        {
+            texto=texto.replace(/imes/g,'i');
+            texto=texto.replace(/ai/g,'a');
+            texto=texto.replace(/enter/g,'e');
+            texto=texto.replace(/ober/g,'o');
+            texto=texto.replace(/ufat/g,'u');
+            return texto;
+        }
+    
+        let texto= prompt("Digite el texto a codificar: ");
+        let codificado= desencriptar(texto);
+        document.write(codificado);
+    </script>
+</body>
+</html>
+
+

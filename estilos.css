@@ -1,12 +1,124 @@
-body
-{
-    background-color: bisque;
+
+body{
+    background: hsla(213, 77%, 14%, 1);
+    
+    font-family: 'Roboto', sans-serif;
+
+    background: linear-gradient(90deg, hsla(213, 77%, 14%, 1) 0%, hsla(202, 27%, 45%, 1) 100%);
+    
+    background: -moz-linear-gradient(90deg, hsla(213, 77%, 14%, 1) 0%, hsla(202, 27%, 45%, 1) 100%);
+    
+    background: -webkit-linear-gradient(90deg, hsla(213, 77%, 14%, 1) 0%, hsla(202, 27%, 45%, 1) 100%);
+    
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#08203E", endColorstr="#557C93", GradientType=1 );width: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
 }
 
-.contenedor{
-    max-width: 800px;
-    max-height: 1000px;
-    border-color: aqua;
-    margin: auto 100px;
-    border-width: 3px;
+.cabecera{
+    width: 100%;
+    position:relative;
+}
+
+.imgLogo{
+    width: 5%;
+    vertical-align: middle;
+    margin: 1em ;
+    display: inline-block;
+}
+
+.cabecera>p{
+    margin-top: 0 auto ;
+    display: inline-block;
+    vertical-align: top;
+}
+
+main{
+    margin: 5px 20px 20px 10px;
+}
+
+.areaTexto{
+    display: inline-block;
+    box-sizing:content-box;
+    width: 100%;
+    position: relative;
+}
+
+.areaTexto>textarea{
+    resize: none;
+    padding: 0.5em ;
+}
+
+
+
+.areaEncriptar{
+    width: 40%;
+    height: 30em;
+    margin-right: 10%;
+    
+}
+
+.areaDesencriptar{
+    width: 40%;
+    height:30em;
+}
+
+
+.conjuntoBotones{
+    margin: 1% 0 1% 0;
+    width: 100%;
+    position: relative;
+    top: 150;
+    left: 10;
+}
+
+.boton{
+    text-align: center;
+    border-radius: 6px;
+    left: 150px;
+    color: #e0e1dd;
+    border: 1px;
+    width: 10%;
+    display: inline-block;
+}
+
+.copiar{
+    position:absolute;
+    right: 100px;
+}
+
+@media screen and (max-width:669px){
+
+
+    .cabecera{
+        font-size: 1.3em;
+    }
+
+    .imgLogo{
+        width: 10%;
+    }
+
+     .areaTexto{
+        display: block;
+    }
+
+
+    .areaEncriptar{
+        width: 100%;
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 1em;
+        margin-right: 5em;
+    }
+
+    .areaDesencriptar{
+        width: 100%;
+    }
+
+    .boton{
+        width: 6.5em;
+        font: 3em;
+    }
 }

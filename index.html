@@ -5,21 +5,59 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Codificador</title>
+    <link rel="stylesheet" href="reset.css">
     <link href="estilos.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <div class="contenedor">
-        <h1>Hola</h1>
-    </div>
+    <header>
+        <div class="cabecera">
+            <p><img src="imagenes/encryption.png" alt="Logo sobre encriptación" class="imgLogo"> SPRINT 1- ENCRIPTADOR</p>
+        </div>
+    </header>
+  
+    <main>
+        <section class="areaTexto">
+            <textarea  id=encriptar class="areaEncriptar" placeholder="Ingrese su texto"></textarea>
+            <textarea id="encriptado" class="areaDesencriptar" ></textarea>
+        </section>
+           
+                <div class="conjuntoBotones">
+                    <button class="boton" onclick =encriptar() style="background-color: #3c6e71;" >Encriptar</button>
+                    <button class="boton" onclick=desencriptar() style="background-color: #415a77;">Desencriptar</button>
+                    <button id="copiar" class="boton"  onclick=copiar() style="background-color: #3c6e71;">Copiar</button>
+        
+                </div>
+                
+        </main>
+
 
     <script>
-        function encriptar(texto)
+
+        function copiar()
         {
-            let codificado="";
-            for(let i=0;i<texto.length;i++)
+            encriptado.select();
+            navigator.clipboard.writeText(encriptado.value);
+            encriptado.value="Texto copiado";
+        }
+
+        function encriptar()
+        {
+
+            let textoSinEncriptar=document.getElementById("encriptar").value;
+            if(textoSinEncriptar.length==0)
             {
-                switch(texto[i])
+                alert("No hay nada que encriptar");
+                return;
+            }
+
+            let codificado="";
+            for(let i=0;i<textoSinEncriptar.length;i++)
+            {
+                switch(textoSinEncriptar[i])
                 {
                     case 'a':
                             codificado+="ai";
@@ -37,25 +75,28 @@
                             codificado+="ufat";
                             break;
                     default:
-                            codificado+=texto[i];
+                            codificado+=textoSinEncriptar[i];
                 }
             }
-            return codificado;
+            document.getElementById("encriptado").value=codificado;
         }
     
-        function desencriptar(texto)
+        function desencriptar()
         {
-            texto=texto.replace(/imes/g,'i');
-            texto=texto.replace(/ai/g,'a');
-            texto=texto.replace(/enter/g,'e');
-            texto=texto.replace(/ober/g,'o');
-            texto=texto.replace(/ufat/g,'u');
-            return texto;
+            let textoEncriptado= document.getElementById("encriptar").value;
+            if(textoEncriptado.length==0)
+            {
+                alert("No hay nada que desencriptar");
+                return;
+            }
+            textoEncriptado=textoEncriptado.replace(/imes/g,'i');
+            textoEncriptado=textoEncriptado.replace(/ai/g,'a');
+            textoEncriptado=textoEncriptado.replace(/enter/g,'e');
+            textoEncriptado=textoEncriptado.replace(/ober/g,'o');
+            textoEncriptado=textoEncriptado.replace(/ufat/g,'u');
+            document.getElementById("encriptado").value=textoEncriptado;
         }
     
-        let texto= prompt("Digite el texto a codificar: ");
-        let codificado= desencriptar(texto);
-        document.write(codificado);
     </script>
 </body>
 </html>

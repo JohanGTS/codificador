@@ -1,3 +1,5 @@
+html body{
+}
 
 body{
     background: hsla(213, 77%, 14%, 1);
@@ -13,13 +15,18 @@ body{
     filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#08203E", endColorstr="#557C93", GradientType=1 );width: 100%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    height: 100%;
-    width: 100%;
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
 }
 
 .cabecera{
     width: 100%;
     position:relative;
+}
+
+.cabecera p{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
 .imgLogo{
@@ -39,6 +46,7 @@ main{
     margin: 5px 20px 20px 10px;
 }
 
+
 .areaTexto{
     display: inline-block;
     box-sizing:content-box;
@@ -49,6 +57,7 @@ main{
 .areaTexto>textarea{
     resize: none;
     padding: 0.5em ;
+    border-radius: 6px;
 }
 
 
@@ -81,12 +90,35 @@ main{
     color: #e0e1dd;
     border: 1px;
     width: 10%;
+    padding: 0.5em;
     display: inline-block;
+    margin: 4px;
+}
+
+.boton:hover{
+    cursor: pointer;
 }
 
 .copiar{
     position:absolute;
     right: 100px;
+}
+
+footer{
+    text-align: center;
+    background: url(imagenes/fonod.jpg);
+    padding: 13px;
+    margin-top: auto;
+}
+
+.imgFooter{
+    width: 4%;
+    display: inline-block;
+}
+
+.copyright{
+    color: white;
+    margin: 10px;
 }
 
 @media screen and (max-width:669px){
@@ -120,5 +152,9 @@ main{
     .boton{
         width: 6.5em;
         font: 3em;
+    }
+
+    .imgFooter{
+        width: 8%;
     }
 }

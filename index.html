@@ -22,81 +22,26 @@
     <main>
         <section class="areaTexto">
             <textarea  id=encriptar class="areaEncriptar" placeholder="Ingrese su texto"></textarea>
-            <textarea id="encriptado" class="areaDesencriptar" ></textarea>
+            <textarea id="encriptado" class="areaDesencriptar" readonly></textarea>
         </section>
            
                 <div class="conjuntoBotones">
-                    <button class="boton" onclick =encriptar() style="background-color: #3c6e71;" >Encriptar</button>
-                    <button class="boton" onclick=desencriptar() style="background-color: #415a77;">Desencriptar</button>
+                    <button class="boton" onclick= encriptar() style="background-color: #3c6e71;" >Encriptar</button>
+                    <button class="boton" onclick= desencriptar() style="background-color: #415a77;">Desencriptar</button>
                     <button id="copiar" class="boton"  onclick=copiar() style="background-color: #3c6e71;">Copiar</button>
         
                 </div>
                 
         </main>
 
+        <footer>
+            <a  href="https://www.linkedin.com/in/johangtavera/"><img src="imagenes/linkedin.png" alt="Linkedin de Johan Tavera" class="imgFooter"/></a>
+            <p class="copyright">Realizado por Johan Tavera &copy 2022</p>
+        </footer>
 
-    <script>
 
-        function copiar()
-        {
-            encriptado.select();
-            navigator.clipboard.writeText(encriptado.value);
-            encriptado.value="Texto copiado";
-        }
+    <script src="script.js">
 
-        function encriptar()
-        {
-
-            let textoSinEncriptar=document.getElementById("encriptar").value;
-            if(textoSinEncriptar.length==0)
-            {
-                alert("No hay nada que encriptar");
-                return;
-            }
-
-            let codificado="";
-            for(let i=0;i<textoSinEncriptar.length;i++)
-            {
-                switch(textoSinEncriptar[i])
-                {
-                    case 'a':
-                            codificado+="ai";
-                            break;
-                    case 'e':
-                            codificado+="enter";
-                            break;
-                    case 'i':
-                            codificado+="imes";
-                            break;
-                    case 'o':
-                            codificado+="ober";
-                            break;
-                    case 'u': 
-                            codificado+="ufat";
-                            break;
-                    default:
-                            codificado+=textoSinEncriptar[i];
-                }
-            }
-            document.getElementById("encriptado").value=codificado;
-        }
-    
-        function desencriptar()
-        {
-            let textoEncriptado= document.getElementById("encriptar").value;
-            if(textoEncriptado.length==0)
-            {
-                alert("No hay nada que desencriptar");
-                return;
-            }
-            textoEncriptado=textoEncriptado.replace(/imes/g,'i');
-            textoEncriptado=textoEncriptado.replace(/ai/g,'a');
-            textoEncriptado=textoEncriptado.replace(/enter/g,'e');
-            textoEncriptado=textoEncriptado.replace(/ober/g,'o');
-            textoEncriptado=textoEncriptado.replace(/ufat/g,'u');
-            document.getElementById("encriptado").value=textoEncriptado;
-        }
-    
     </script>
 </body>
 </html>
